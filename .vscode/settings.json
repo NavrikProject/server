@@ -1,0 +1,13 @@
+{
+  "cSpell.words": [
+    "engment",
+    "fullname",
+    "ifsc",
+    "msnodesqlv",
+    "navrikimage",
+    "recordset",
+    "Regd",
+    "sendgrid"
+  ],
+  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"]
+}

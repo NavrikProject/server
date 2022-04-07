@@ -26,6 +26,7 @@ router.get("/search", getCourseBySearch);
 router.get("/category/domain", getCourseByCategoryDomain);
 router.get("/category/it-skills", getCourseByCategoryItSkills);
 router.get("/category/software", getCourseByCategorySoftware);
+
 router.get("/master", getMasterCourseByTitles);
 
 // get course by category in the all courses section

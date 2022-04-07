@@ -164,6 +164,7 @@ export function getCourseBySearch(req, res) {
 
 export function getMasterCourseByTitles(req, res) {
   const query = req.query.category;
+
   try {
     sql.connect(config, (err) => {
       if (err) return res.send(err.message);
@@ -176,7 +177,7 @@ export function getMasterCourseByTitles(req, res) {
           if (result.recordset.length > 0) {
             return res.send(result.recordset);
           } else {
-            return;
+            res.send(err.message);
           }
         }
       );

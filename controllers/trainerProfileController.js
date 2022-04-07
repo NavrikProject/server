@@ -135,6 +135,7 @@ export function updateTrainerProfileDetailsController(req, res, next) {
     }
   );
 }
+
 //need to be checked
 export function getTrainerProfileDetailsController(req, res) {
   const id = req.params.id;
@@ -144,7 +145,7 @@ export function getTrainerProfileDetailsController(req, res) {
       const request = new sql.Request();
       request.input("id", sql.Int, id);
       request.query(
-        "SELECT * FROM users_dtls WHERE user_dtls_id =@id",
+        "select * from users_dtls WHERE user_dtls_id = @id",
         (err, result) => {
           if (err) return res.send(err.message);
           if (result.recordset.length > 0) {
@@ -160,11 +161,9 @@ export function getTrainerProfileDetailsController(req, res) {
                     res.send({ error: err.message });
                   }
                   if (result.recordset.length > 0) {
-                    if (result.recordset.length > 0) {
-                      res.send(result.recordset);
-                    } else {
-                      return;
-                    }
+                    res.send(result.recordset);
+                  } else {
+                    return;
                   }
                 }
               );

@@ -163,7 +163,7 @@ export function getTrainerProfileDetailsController(req, res) {
                   if (result.recordset.length > 0) {
                     res.send(result.recordset);
                   } else {
-                    return;
+                    return res.send({ notfound: "not found" });
                   }
                 }
               );

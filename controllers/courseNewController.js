@@ -1,4 +1,3 @@
-import moment from "moment";
 import sql from "mssql";
 import config from "../config/dbconfig.js";
 import azureStorage from "azure-storage";
@@ -234,7 +233,7 @@ export async function editCourse(req, res) {
   }
 }
 
-// deleting the course
+// deleting the course && working
 export async function deleteCourse(req, res) {
   const id = req.params.id;
   try {

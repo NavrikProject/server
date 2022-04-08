@@ -13,6 +13,7 @@ import {
 
 import { verifyToken } from "../middleware/verifyToken.js";
 import routers from "express";
+
 let router = routers.Router();
 
 // specific  course
@@ -27,6 +28,7 @@ router.get("/category/domain", getCourseByCategoryDomain);
 router.get("/category/it-skills", getCourseByCategoryItSkills);
 router.get("/category/software", getCourseByCategorySoftware);
 
+//get master course in join now form
 router.get("/master", getMasterCourseByTitles);
 
 // get course by category in the all courses section

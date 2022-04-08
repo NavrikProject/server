@@ -16,13 +16,14 @@ export async function emailRegister(req, res, next) {
   const type = req.body.type;
   const lowEmail = email.toLowerCase();
   const password = req.body.password;
-  let hashedPassword = await bcrypt.hash(password, 12);
 
   if (!lowEmail && !password && firstName && !lastName && !type) {
     return res.json({
       required: "ALl details must be required",
     });
   }
+  let saltRounds = await bcrypt.genSalt(12);
+  let hashedPassword = await bcrypt.hash(password, saltRounds);
   sql.connect(config, async (err) => {
     if (err) {
       return res.send(err.message);
@@ -246,7 +247,7 @@ export async function login(req, res) {
     );
   });
 }
-
+// forgot password
 export async function forgotPassword(req, res) {
   const email = req.body.email;
   if (!email) return;
@@ -305,7 +306,7 @@ export async function forgotPassword(req, res) {
 export async function resetPassword(req, res) {
   const password = req.body.password;
   if (!password) {
-    res.json({ error: "The password must be required" });
+    return res.json({ error: "The password must be required" });
   }
   const hashedPassword = await bcrypt.hash(password, 12);
   try {

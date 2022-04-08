@@ -12,9 +12,9 @@ export async function getAllTheUsersData(req, res, next) {
         (err, result) => {
           if (err) res.send(err.message);
           if (result.recordset.length > 0) {
-            res.send(result.recordset);
+            res.send({ users: result.recordset });
           } else {
-            res.send("No user found");
+            return;
           }
         }
       );
@@ -89,6 +89,8 @@ export async function updateAdminApprove(req, res, next) {
     if (error) res.send(error.message);
   }
 }
+
+
 //disapproved
 export async function updateAdminDisapprove(req, res, next) {
   const paramsId = req.params.id;

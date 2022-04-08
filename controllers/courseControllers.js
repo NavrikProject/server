@@ -175,9 +175,9 @@ export function getMasterCourseByTitles(req, res) {
         (err, result) => {
           if (err) return res.send(err.message);
           if (result.recordset.length > 0) {
-            return res.send(result.recordset);
+            return res.send({ master: result.recordset });
           } else {
-            res.send(err.message);
+            return;
           }
         }
       );

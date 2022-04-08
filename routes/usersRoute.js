@@ -8,6 +8,7 @@ import {
 
 import { verifyTokenAndAuthorization } from "../middleware/verifyToken.js";
 
+//working
 router.get("/get", verifyTokenAndAuthorization, getAllTheUsersData);
 
 // approve admin route
